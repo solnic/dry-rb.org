@@ -8,7 +8,7 @@ install:
   - npm install -g gulp-cli
 script:
   - cd ui && npm install && gulp bundle
-  - node_modules/@antora/cli/bin/antora site.yml
+  - cd ../ && node_modules/@antora/cli/bin/antora site.yml
 deploy:
   local_dir: build/site
   provider: pages
