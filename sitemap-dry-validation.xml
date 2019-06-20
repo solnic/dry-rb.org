@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/configuration.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/extensions.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/external-dependencies.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/introduction.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/macros.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/messages.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/rules.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+<url>
+<loc>https://docs.dry-rb.org/dry-validation/1.1.0/schemas.html</loc>
+<lastmod>2019-06-20T08:40:46.283Z</lastmod>
+</url>
+</urlset>

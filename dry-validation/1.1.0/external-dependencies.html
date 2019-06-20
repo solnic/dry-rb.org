@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External dependencies :: dry-rb documentation</title>
+    <link rel="canonical" href="https://docs.dry-rb.org/dry-validation/1.1.0/external-dependencies.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.dry-rb.org">dry-rb documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="dry-validation" data-version="1.1.0">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="introduction.html">dry-validation documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="rules.html">Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="messages.html">Messages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="macros.html">Macros</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="external-dependencies.html">External Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="extensions.html">Extensions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">dry-validation documentation</span>
+    <span class="version">1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">dry-rb documentation</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dry-rb/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">dry-validation documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="introduction.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../dry-rb/1.0.0/index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="introduction.html">dry-validation documentation</a></li>
+    <li class="crumb"><a href="external-dependencies.html">External Dependencies</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/dry-rb/dry-validation/edit/antora-test/docs/modules/ROOT/pages/external-dependencies.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>External dependencies</h1>
+<div class="paragraph">
+<p>It&#8217;s common to use external services that are needed for various validation rules. A good example is using objects that give you access to the database. Whenever you need to access such services, you can levarage <code>Dry::Validation::Contract.option</code>.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you use an API client object that can perform address validation - we can define it as an external dependency that will be injected to the contract&#8217;s constructor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class NewUserContract &lt; Dry::Validation::Contract
+  option :address_validator
+
+  params do
+    required(:address).filled(:string)
+  end
+
+  rule(:address) do
+    key.failure("invalid address") unless address_validator.valid?(values[:address])
+  end
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we can instantiate the contract and pass <code>address_validator</code> as a dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">new_user_contract = NewUserContract.new(address_validator: your_address_validator)
+
+new_user_contract.call(address: "Some Street 15/412")</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you&#8217;re using dependency injection with dry-auto_inject, this will work out-of-the-box
+</td>
+</tr>
+</table>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

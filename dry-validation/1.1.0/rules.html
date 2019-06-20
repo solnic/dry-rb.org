@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules :: dry-rb documentation</title>
+    <link rel="canonical" href="https://docs.dry-rb.org/dry-validation/1.1.0/rules.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.dry-rb.org">dry-rb documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="dry-validation" data-version="1.1.0">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="introduction.html">dry-validation documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="rules.html">Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="messages.html">Messages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="macros.html">Macros</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="external-dependencies.html">External Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="extensions.html">Extensions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">dry-validation documentation</span>
+    <span class="version">1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">dry-rb documentation</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dry-rb/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">dry-validation documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="introduction.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../dry-rb/1.0.0/index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="introduction.html">dry-validation documentation</a></li>
+    <li class="crumb"><a href="rules.html">Rules</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/dry-rb/dry-validation/edit/antora-test/docs/modules/ROOT/pages/rules.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Rules</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Rules in contracts are meant to perform domain-specific validation of the data already processed by the contract&#8217;s schema. This way, you can define rules that can focus purely on their validation logic without having to worry about type-related details.</p>
+</div>
+<div class="paragraph">
+<p>When you apply a contract, it will process the input data using its schema, and then apply its rules one-by-one, in the same order as you defined them.</p>
+</div>
+<div class="paragraph">
+<p>If a rule specifies that it depends on certain keys from the input data, it <strong>will be executed only when the schema successfuly processed those keys</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_defining_a_rule"><a class="anchor" href="#_defining_a_rule"></a>Defining a rule</h3>
+<div class="paragraph">
+<p>To define a rule on a contract, use the <code>rule</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say we want to validate that an event&#8217;s start date is in the future. We&#8217;ll define a contract for event data with a <code>start_date</code> key that must be provided as a valid <code>Date</code> object. Then we&#8217;ll define a rule to check that it&#8217;s in the future:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class EventContract &lt; Dry::Validation::Contract
+  params do
+    required(:start_date).value(:date)
+  end
+
+  rule(:start_date) do
+    key.failure('must be in the future') if value &lt;= Date.today
+  end
+end
+
+contract = EventContract.new</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that if we apply your contract with an input that doesn&#8217;t include a date under <code>start_date</code> key, the rule <strong>will not be executed</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">contract.call(start_date: 'oops').errors.to_h
+# =&gt; {:start_date=&gt;["must be a date"]}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When <code>start_date</code> is a <code>Date</code>, the rule will be executed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">contract.call(start_date: Date.today - 1).errors.to_h
+# =&gt; {:start_date=&gt;["must be in the future"]}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_depending_on_more_than_one_key"><a class="anchor" href="#_depending_on_more_than_one_key"></a>Depending on more than one key</h3>
+<div class="paragraph">
+<p>In our previous example, we defined a simple rule that depends on a single key. To depend on more than one key, we can specify a list of keys. Let&#8217;s extend the previous example and change our rule to validate that an <code>end_date</code> should be after the <code>start_date</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class EventContract &lt; Dry::Validation::Contract
+  params do
+    required(:start_date).value(:date)
+    required(:end_date).value(:date)
+  end
+
+  rule(:end_date, :start_date) do
+    key.failure('must be after start date') if values[:end_date] &gt;= values[:start_date]
+  end
+end
+
+contract = EventContract.new
+
+contract.call(start_date: Date.today, end_date: Date.today - 1).errors.to_h
+# =&gt; {:end_date=&gt;["must be after start date"]}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_key_path_syntax"><a class="anchor" href="#_key_path_syntax"></a>Key path syntax</h3>
+<div class="paragraph">
+<p>You can define key dependencies for rules using a <em>key path</em> syntax. Here&#8217;s a list of supported key paths:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using a hash: <code>rule(address: :city) do ...</code></p>
+</li>
+<li>
+<p>The same, but using <em>dot notation</em>: <code>rule("address.city") do ...</code></p>
+</li>
+<li>
+<p>Specifying multiple nested keys using a hash: <code>rule(address: [:city, :street]) do ...</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_key_failures"><a class="anchor" href="#_key_failures"></a>Key failures</h3>
+<div class="paragraph">
+<p>The only responsibility of a rule is to set a failure message when the validation didn&#8217;t pass. In the previous examples, we used <code>key.failure</code> to manually set messages. Use this if you want to set a failure message that should be accessible under a specific key.</p>
+</div>
+<div class="paragraph">
+<p>When you use <code>key.failure</code> without any specific key arguments, it uses <em>the first key specified with the rule</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">rule(:start_date) do
+  key.failure('oops')
+  # ^ is the equivalent of
+  key(:start_date).failure('oops')
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You <em>do not have to use keys matching those specified with the rule</em>. For example, this is perfectly fine:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">rule(:start_date) do
+  key(:event_errors).failure('oops')
+end</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_base_failures"><a class="anchor" href="#_base_failures"></a>Base failures</h3>
+<div class="paragraph">
+<p>Unlike key failures, base failures are not associated with a specific key, instead they are associated with the whole input. To set a base failure, use the <code>base</code> method, which has the same API as <code>key</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class EventContract &lt; Dry::Validation::Contract
+  option :today, default: Date.method(:today)
+
+  params do
+    required(:start_date).value(:date)
+    required(:end_date).value(:date)
+  end
+
+  rule do
+    if today.saturday? || today.sunday?
+      base.failure('creating events is allowed only on weekdays')
+    end
+  end
+end
+
+contract = EventContract.new</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now when you try to apply this contract during a weekend, you&#8217;ll get a base error:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">contract.call(start_date: Date.today+1, end_date: Date.today+2).errors.to_h
+# =&gt; {nil=&gt;["creating events is allowed only on weekdays"]}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that the hash representation of errors includes a <code>nil</code> key to indicate the base errors. There&#8217;s also a specific API for finding all base errors, if you prefer that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">contract.call(start_date: Date.today+1, end_date: Date.today+2).errors.filter(:base?).map(&amp;:to_s)
+# =&gt; ["creating events is allowed only on weekdays"]</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Curious about that <code>option</code> method that we used to set <code>today</code> value? You can learn about it in <a href="external-dependencies.html" class="page">the external dependencies</a> section.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reading_rule_values"><a class="anchor" href="#_reading_rule_values"></a>Reading rule values</h3>
+<div class="paragraph">
+<p>For convenience, you can use <code>value</code> method to easily access the value under rule&#8217;s default key. This works with all key specifications, including nested keys, and specifying a path to multiple values.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">rule(:start_date) do
+  value
+  # returns values[:start_date]
+end
+
+rule(date: :start) do
+  value
+  # returns values[:date][:start]
+end
+
+rule(dates: [:start, :stop]) do
+  value
+  # returns an array: [values[:dates][:start], values[:dates][:stop]]
+end</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_checking_if_the_value_is_present"><a class="anchor" href="#_checking_if_the_value_is_present"></a>Checking if the value is present</h3>
+<div class="paragraph">
+<p>When you&#8217;re not sure if the value is actually available, you can use <code>key?</code> method. It returns <code>true</code> when a value under rule&#8217;s key is present, <code>false</code> otherwise.</p>
+</div>
+<div class="paragraph">
+<p>A common use case is when your rules depend on optional keys, here&#8217;s an example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class NewUserContract &lt; Dry::Validation::Contract
+  params do
+    required(:email).value(:string)
+    optional(:login).value(:string)
+    optional(:password).value(:string)
+  end
+
+  rule(:password) do
+    key.failure('password is required') if key? &amp;&amp; values[:login] &amp;&amp; value.length &lt; 12
+  end
+end
+
+contract = NewUserContract.new
+
+contract.call(email: 'jane@doe.org', login: 'jane', password: "").errors.to_h
+# =&gt; {:password=&gt;["password is required"]}</code></pre>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

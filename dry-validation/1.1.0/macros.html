@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macros :: dry-rb documentation</title>
+    <link rel="canonical" href="https://docs.dry-rb.org/dry-validation/1.1.0/macros.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.dry-rb.org">dry-rb documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="dry-validation" data-version="1.1.0">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="introduction.html">dry-validation documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="rules.html">Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="messages.html">Messages</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="macros.html">Macros</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="external-dependencies.html">External Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="extensions.html">Extensions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">dry-validation documentation</span>
+    <span class="version">1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">dry-rb documentation</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dry-rb/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">dry-validation documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="introduction.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../dry-rb/1.0.0/index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="introduction.html">dry-validation documentation</a></li>
+    <li class="crumb"><a href="macros.html">Macros</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/dry-rb/dry-validation/edit/antora-test/docs/modules/ROOT/pages/macros.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Macros</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This is <strong>an experimental feature</strong> and its API may change before 2.0.0
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Macros are a simple way of streamlining rule definitions. Whenever you find yourself repeating the exact same type of validation rules, consider defining a macro to reduce duplication. You can either define globally available macros for all contracts, or a per-class macros where the class and its descandants will be able to access them.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_defining_a_global_macro"><a class="anchor" href="#_defining_a_global_macro"></a>Defining a global macro</h3>
+<div class="paragraph">
+<p>To define a global macro you can use <code>Dry::Validation.register_macro</code> API. Here&#8217;s a simple example where we define a macro that checks format of a string:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">Dry::Validation.register_macro(:email_format) do
+  unless /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.match?(value)
+    key.failure('not a valid email format')
+  end
+end</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_defining_a_macro_for_a_contract_class"><a class="anchor" href="#_defining_a_macro_for_a_contract_class"></a>Defining a macro for a contract class</h3>
+<div class="paragraph">
+<p>Unlike global macros, contract macros are only available to the class and its descendants. To define a contract class macro you can use <code>Dry::Validation::Contract.register_macro</code>. Here&#8217;s the same example like above but we&#8217;ll define a class macro:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class ApplicationContract &lt; Dry::Validation::Contract
+  register_macro(:email_format) do
+    unless /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.match?(value)
+      key.failure('not a valid email format')
+    end
+  end
+end</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_a_macro_with_rules"><a class="anchor" href="#_using_a_macro_with_rules"></a>Using a macro with rules</h3>
+<div class="paragraph">
+<p>To define a rule that will apply a macro, simply use <code>Rule#validate</code> method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class NewUserContract &lt; ApplicationContract
+  params do
+    required(:email).filled(:string)
+  end
+
+  rule(:email).validate(:email_format)
+end</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_macro_with_options"><a class="anchor" href="#_macro_with_options"></a>Macro with options</h3>
+<div class="paragraph">
+<p>If you want a macro to be parameterized, you can achieve that by passing a hash with options where the keys are macro identifiers. This way you will have access to macro arguments in the rule block. Here&#8217;s an example how we could define a macro that checks a minimum size of an array, where we pass the minimum size as an option.</p>
+</div>
+<div class="paragraph">
+<p>First, let&#8217;s define a <code>:min_size</code> macro. Notice that we use a <code>macro</code> parameter in the block, which is the instance of our macro that gives us access to its <code>args</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class ApplicationContract &lt; Dry::Validation::Contract
+  register_macro(:min_size) do |macro:|
+    min = macro.args[0]
+    key.failure("must have at least #{min} elements") unless value.size &gt;= min
+  end
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With the macro defined, you can simply use this with <code>Rule#validate</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class NewUserContract &lt; ApplicationContract
+  params do
+    required(:phone_numbers).value(:array)
+  end
+
+  rule(:email).validate(min_size: 1)
+end</code></pre>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

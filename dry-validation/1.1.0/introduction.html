@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction :: dry-rb documentation</title>
+    <link rel="canonical" href="https://docs.dry-rb.org/dry-validation/1.1.0/introduction.html">
+    <meta name="description" content="Powerful data validation">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.dry-rb.org">dry-rb documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="dry-validation" data-version="1.1.0">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="introduction.html">dry-validation documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="configuration.html">Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="rules.html">Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="messages.html">Messages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="macros.html">Macros</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="external-dependencies.html">External Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="extensions.html">Extensions</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">dry-validation documentation</span>
+    <span class="version">1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">dry-rb documentation</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dry-rb/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">dry-validation documentation</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="introduction.html">1.1.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../dry-rb/1.0.0/index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="introduction.html">dry-validation documentation</a></li>
+    <li class="crumb"><a href="introduction.html">Introduction</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/dry-rb/dry-validation/edit/antora-test/docs/modules/ROOT/pages/introduction.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Introduction</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>dry-validation is a data validation library that provides a powerful DSL for defining schemas and validation rules.</p>
+</div>
+<div class="paragraph">
+<p>Validations are expressed through contract objects. A contract specifies a schema with basic type checks and any additional rules that should be applied. Contract rules are applied only once the values they rely on have been succesfully verified by the schema.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unique_features"><a class="anchor" href="#_unique_features"></a>Unique features</h3>
+<div class="paragraph">
+<p>There are a couple of unique features that make <code>dry-validation</code> stand out from the crowd:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Strict, explicit data schemas are separated from the domain validation logic - this allows you define validation rules that are <strong>type safe</strong> and focus exclusively on validation logic. This in turn makes rule code much simpler and easier to understand</p>
+</li>
+<li>
+<p>Schemas are powered by <a href="/gems/dry-schema"><code>dry-schema</code></a> which <strong>sanitizes, coerces and type-checks</strong> the input for you</p>
+</li>
+<li>
+<p>Contracts support defining macros, which can <strong>significantly reduce code duplication</strong> in your rules</p>
+</li>
+<li>
+<p>Plays nice with dependency injection, using either <code>option</code> API or automated approach via <code>dry-auto_inject</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quick_start"><a class="anchor" href="#_quick_start"></a>Quick start</h3>
+<div class="paragraph">
+<p>Here&#8217;s an example contract:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ruby hljs" data-lang="ruby">class NewUserContract &lt; Dry::Validation::Contract
+  params do
+    required(:email).filled(:string)
+    required(:age).value(:integer)
+  end
+
+  rule(:email) do
+    unless /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.match?(value)
+      key.failure('has invalid format')
+    end
+  end
+
+  rule(:age) do
+    key.failure('must be greater than 18') if value &lt; 18
+  end
+end
+
+contract = NewUserContract.new
+
+contract.call(email: 'jane@doe.org', age: '17')
+# #&lt;Dry::Validation::Result{:email=&gt;"jane@doe.org", :age=&gt;17} errors={:age=&gt;["must be greater than 18"]}&gt;</code></pre>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
